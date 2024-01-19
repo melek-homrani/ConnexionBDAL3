@@ -18,3 +18,5 @@ INSERT INTO 'personne' ('id', 'nom', 'prenom', 'age') VALUES
 (6, 'Doe', 'Adams', 18),
 (7, 'Doe', 'Jack', 18),
 (8, 'Doe', 'Jimmy', 18);
+
+COMMIT;
