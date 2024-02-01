@@ -9,7 +9,7 @@ public class DataSource {
     private static DataSource data;
     private String url = "jdbc:mysql://localhost:3306/esprit";
     private String user = "root";
-    private String pwd = "";
+    private String pwd = "root";
 
     private DataSource() {
         try {

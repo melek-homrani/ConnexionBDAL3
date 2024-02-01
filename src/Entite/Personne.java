@@ -5,6 +5,11 @@ public class Personne {
     private String nom, prenom;
     private int age;
 
+    public Personne(){};
+
+    public Personne(int id) {
+        this.id = id;
+    }
     public Personne(String nom, String prenom, int age) {
         this.nom = nom;
         this.prenom = prenom;

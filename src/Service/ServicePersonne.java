@@ -28,30 +28,48 @@ public class ServicePersonne implements IService<Personne> {
     }
 
     @Override
-    public void ajouter(Personne personne) throws SQLException {
+    public void add(Personne personne) throws SQLException {
         String req = "INSERT INTO `personne` (`id`, `nom`, `prenom`, `age`) VALUES (NULL, '" + personne.getNom() + "', '" + personne.getPrenom() + "', '" + personne.getAge() + "');";
-
         ste.executeUpdate(req);
-
     }
 
     @Override
-    public boolean supprimer(Personne personne) throws SQLException {
-        return false;
+    public boolean delete(Personne personne) throws SQLException {
+        String req = "DELETE FROM `personne` WHERE id='" + personne.getId() + "';";
+        int rowsDeleted = ste.executeUpdate(req);
+
+        return rowsDeleted > 0;
     }
 
     @Override
     public boolean update(Personne personne) throws SQLException {
-        return false;
+        String req = "UPDATE `personne` SET `nom`='" + personne.getNom() + "', `prenom`='" + personne.getPrenom() + "', `age`='" + personne.getAge() + "' WHERE id='" + personne.getId() + "';";
+
+        int rowsUpdated = ste.executeUpdate(req);
+
+        return rowsUpdated > 0;
     }
 
     @Override
     public Personne findById(Personne personne) throws SQLException {
+        String req = "SELECT * FROM `personne` WHERE id='" + personne.getId() + "';";
+        ResultSet res = ste.executeQuery(req);
+
+        if (res.next()) {
+            int id = res.getInt(1);
+            String nom = res.getString(2);
+            String prenom = res.getString("prenom");
+            int age = res.getInt("age");
+
+            return new Personne(id, nom, prenom, age);
+        }
+
         return null;
     }
 
+
     @Override
-    public List<Personne> readAll() throws SQLException {
+    public List<Personne> findAll() throws SQLException {
         List<Personne> l1 = new ArrayList<>();
         ResultSet res = ste.executeQuery("select  * from personne");
         while (res.next()) {

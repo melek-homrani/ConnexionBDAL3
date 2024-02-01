@@ -47,7 +47,8 @@ CREATE TABLE IF NOT EXISTS formation
     difficulte  varchar(255) NOT NULL,
     duree       int(11)      NOT NULL,
     idCategorie int(11)      NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    FOREIGN KEY (idCategorie) REFERENCES categorie (id)
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 1;
 
@@ -67,7 +68,7 @@ CREATE TABLE IF NOT EXISTS categorie
 (
     id          int(11)      NOT NULL AUTO_INCREMENT,
     nom         varchar(255) NOT NULL,
-    description varchar(255) NOT NULL,
+    description varchar(1255) NOT NULL,
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 1;
