@@ -32,7 +32,7 @@ public class EtudiantService implements IService<Etudiant>{
     }
     @Override
     public void add(Etudiant etudiant) throws SQLException {
-        String req = "INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `age`, `nomUtilisateur`, `email`, `motDePasse`) VALUES (NULL, '" + etudiant.getNom() + "', '" + etudiant.getPrenom() + "', '" + etudiant.getAge() + "', '" + etudiant.getnomUtilisateur() + "', '" + etudiant.getemail() + "', '" + etudiant.getmotDePasse() + "');";
+        String req = "INSERT INTO `etudiant` (`id`, `nom`, `prenom`, `age`, `nomUtilisateur`, `email`, `motDePasse`,`idFormation`) VALUES (NULL, '" + etudiant.getNom() + "', '" + etudiant.getPrenom() + "', '" + etudiant.getAge() + "', '" + etudiant.getnomUtilisateur() + "', '" + etudiant.getemail() + "', '" + etudiant.getmotDePasse() + "', '" + etudiant.getIdFormation()+ "');";
         ste.executeUpdate(req);
     }
 

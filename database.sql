@@ -10,7 +10,20 @@ CREATE TABLE IF NOT EXISTS personne
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 1;
-
+DROP TABLE IF EXISTS etudiant;
+CREATE TABLE IF NOT EXISTS etudiant
+(
+    id     int(11)      NOT NULL AUTO_INCREMENT,
+    nom    varchar(255) NOT NULL,
+    prenom varchar(255) NOT NULL,
+    age    int(11)      NOT NULL,
+    nomUtilisateur varchar(255) NOT NULL,
+    motDePasse varchar(255) NOT NULL ,
+    idFormation int(11) NOT NULL ,
+    PRIMARY KEY (id)
+    FOREIGN KEY (idFormation) References formation(id)
+    ) ENGINE = InnoDB
+    AUTO_INCREMENT = 1;
 INSERT INTO personne (id, nom, prenom, age)
 VALUES (1, 'Doe', 'John', 25),
        (2, 'Doe', 'Jane', 23),

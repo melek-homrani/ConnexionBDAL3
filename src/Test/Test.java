@@ -15,7 +15,7 @@ public class Test {
         Personne p1=new Personne("bbb","oons",12);
 
         try {
-            ser.ajouter(p1);
+            ser.add(p1);
         }catch (SQLException e)
         {
             System.out.println(e);
@@ -23,7 +23,7 @@ public class Test {
 
         List<Personne> l=null;
        try {
-           l = ser.readAll();
+           l = ser.findAll();
        }catch (SQLException e)
        {
            System.out.println(e);
