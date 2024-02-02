@@ -32,7 +32,7 @@ public class EnseignantService implements IService<Enseignant>{
     }
     @Override
     public void add(Enseignant enseignant) throws SQLException {
-        String req = "INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `age`, `nomUtilisateur`, `email`, `motDePasse`,`idFormation`) VALUES (NULL, '" + enseignant.getNom() + "', '" + enseignant.getPrenom() + "', '" + enseignant.getAge() + "', '" + enseignant.getnomUtilisateur() + "', '" + etudiant.getemail() + "', '" + etudiant.getmotDePasse() + "', '" + enseignant.getIdFormation()+ "');";
+        String req = "INSERT INTO `enseignant` (`id`, `nom`, `prenom`, `age`, `nomUtilisateur`, `email`, `motDePasse`,`idFormation`) VALUES (NULL, '" + enseignant.getNom() + "', '" + enseignant.getPrenom() + "', '" + enseignant.getAge() + "', '" + enseignant.getnomUtilisateur() + "', '" + enseignant.getemail() + "', '" + enseignant.getmotDePasse() + "');";
         ste.executeUpdate(req);
     }
 
@@ -45,7 +45,7 @@ public class EnseignantService implements IService<Enseignant>{
 
     @Override
     public boolean update(Enseignant enseignant) throws SQLException {
-        String req = "UPDATE `enseignant` SET `nom`='" + enseignant.getNom() + "', `prenom`='" + enseignant.getPrenom() + "', `age`='" + enseignant.getAge() + "', `nomUtilisateur`='" + enseignant.getnomUtilisateur() + "', `email`='" + enseignant.getemail() + "', `motDePasse`='" + etudiant.getmotDePasse() + "' WHERE id='" + enseignant.getId() + "';";
+        String req = "UPDATE `enseignant` SET `nom`='" + enseignant.getNom() + "', `prenom`='" + enseignant.getPrenom() + "', `age`='" + enseignant.getAge() + "', `nomUtilisateur`='" + enseignant.getnomUtilisateur() + "', `email`='" + enseignant.getemail() + "', `motDePasse`='" + enseignant.getmotDePasse() + "' WHERE id='" + enseignant.getId() + "';";
         int rowsUpdated = ste.executeUpdate(req);
         return rowsUpdated > 0;
     }
